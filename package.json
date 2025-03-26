@@ -6,9 +6,9 @@
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Maxim Klenov",
+  "license": "MIT",
+  "description": "Telegram bot используемый для опроса средней и старшей школы.",
   "dependencies": {
     "@grammyjs/hydrate": "^1.4.1",
     "dotenv": "^16.4.7",
