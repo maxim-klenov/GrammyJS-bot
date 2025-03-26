@@ -1,7 +1,10 @@
 <h1 align="center">  Политика конфиденциальности </h1>
 
+<span align="center">
+
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
+</span>
 Мы ценим вашу конфиденциальность и стремимся защищать ваши личные данные. Ниже приведена информация о том, какие данные мы собираем и как мы их используем.
 
 
