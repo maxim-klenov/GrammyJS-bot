@@ -23,8 +23,8 @@ async function start(ctx) {
 
 async function restart(ctx) {
   if (await db.checkUser(ctx)) {
-    ctx.reply('Извините, но вы уже участвовали в опросе')
-  } 
+    return;
+  }
   else {
     if (userAnswers.length === 0) {
       ctx.reply('/start')
@@ -46,6 +46,9 @@ async function restart(ctx) {
 }
 
 async function callBackQuery(ctx) {
+  if (await db.checkUser(ctx)) {
+    return;
+  }
   const startInlineKeyboard = new InlineKeyboard().text('Начать', 'Start');
   userAnswers.push(ctx.callbackQuery.data);
   await ctx.answerCallbackQuery();
@@ -102,7 +105,6 @@ async function onLastQuestion(ctx) {
   await ctx.answerCallbackQuery();
   await ctx.callbackQuery.message.editText(
     `Спасибо за ваше участие в опросе.😁`);
-  // userInfo.push(ctx.from.id);
   return ctx.from.id;
 }
 module.exports = { 
