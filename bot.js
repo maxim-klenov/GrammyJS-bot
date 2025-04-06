@@ -3,7 +3,7 @@ const { Bot, GrammyError, HttpError } = require('grammy');
 const { hydrate } = require('@grammyjs/hydrate');
 const db = require('./db');
 const handlers = require('./handlers');
-const { userAnswers, handleCallbackQuery } = require('./handlers');
+const { userAnswers } = require('./handlers');
 
 const bot = new Bot(process.env.BOT_API_KEY);
 bot.use(hydrate());
