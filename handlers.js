@@ -2,7 +2,32 @@ const db = require('./db');
 const { InlineKeyboard } = require('grammy');
 let userAnswers = [];
 
+async function deleteMessages(ctx) {
+  try {
+    const chatId = ctx.chat.id;
+    const messageId = ctx.message.message_id;
+    for (let i = messageId - 1; i >= messageId - 2; i--) {
+      try {
+        let res = await ctx.api.deleteMessage(chatId, i);
+      } catch (e) {
+        if (e.description === 'Bad Request: message to delete not found') {
+          true
+        } else {
+          console.error(e);
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Ошибка удаления сообщений:', error);
+  }
+}
+
 async function start(ctx) {
+  
+  // delete last session 
+  deleteMessages(ctx);
+  // Continue executing code here
+
   if (await db.checkUser(ctx)) {
     return;
   }
@@ -27,7 +52,8 @@ async function restart(ctx) {
   }
   else {
     if (userAnswers.length === 0) {
-      ctx.reply('/start')
+      deleteMessages(ctx);
+      ctx.reply('/start');
     }
     else {
       // clear array before start
@@ -40,7 +66,7 @@ async function restart(ctx) {
         reply_markup: startInlineKeyboard
       });
       // delete last session 
-      await ctx.api.deleteMessage(ctx.chat.id, ctx.message.message_id - 1);    
+      deleteMessages(ctx);  
     }
   }
 }
@@ -116,4 +142,5 @@ module.exports = {
   onSecondQuestion,
   onThirdQuestion,
   onLastQuestion,
-  userAnswers };
+  userAnswers 
+};
