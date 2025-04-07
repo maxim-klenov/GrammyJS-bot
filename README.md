@@ -1,4 +1,4 @@
-# Telegram bot на GrammyJS --> [cсылка на бота](https://t.me/survey_quiz_ai_bot)
+# Telegram bot на GrammyJS --> [cсылка на бота](https://t.me/read_answer_bot)
 
 **Описание**
 
