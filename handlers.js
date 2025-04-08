@@ -23,27 +23,27 @@ async function deleteMessages(ctx) {
 }
 
 async function start(ctx) {
-  
-  // delete last session 
-  deleteMessages(ctx);
-  // Continue executing code here
+    // delete last session 
+    deleteMessages(ctx);
+    // Continue executing code here
+    
 
-  if (await db.checkUser(ctx)) {
-    return;
-  }
-  userAnswers.length = 0;
-  const gradeInlineKeyboard = new InlineKeyboard()
-  .text('6', '0-6')
-  .text('7', '0-7')
-  .text('8', '0-8')
-  .text('9', '0-9')
-  .text('10', '0-10')
-  .text('11', '0-11');
-  await ctx.react("🍾")
-  await ctx.reply('Привет!') 
-  await ctx.reply(`Выбери свой класс:`, {
-    reply_markup: gradeInlineKeyboard // probably here is the mistake
-  })
+    if (await db.checkUser(ctx)) {
+      return;
+    }
+    userAnswers.length = 0;
+    const gradeInlineKeyboard = new InlineKeyboard()
+    .text('6', '0-6')
+    .text('7', '0-7')
+    .text('8', '0-8')
+    .text('9', '0-9')
+    .text('10', '0-10')
+    .text('11', '0-11');
+    await ctx.react("🍾")
+    await ctx.reply('Привет!') 
+    await ctx.reply(`Выбери свой класс:`, {
+      reply_markup: gradeInlineKeyboard // probably here is the mistake
+    })
 }
 
 async function restart(ctx) {
@@ -95,7 +95,7 @@ async function onStart(ctx) {
 
 async function onFirstQuestion(ctx) {
   userAnswers.push(ctx.callbackQuery.data);
-  const questionInlineKeyboard = new InlineKeyboard().text('Гуманитарные', '2-1').text('Точные науки', '2-2').row().text('Языки', '2-3').text('Все предметы', '2-4');
+  const questionInlineKeyboard = new InlineKeyboard().text('Гуманитарные', '2-5').text('Точные науки', '2-6').row().text('Языки', '2-7').text('Все предметы', '2-8');
   await ctx.answerCallbackQuery();
   await ctx.callbackQuery.message.editText(`(2/4) 
     
@@ -106,7 +106,7 @@ async function onFirstQuestion(ctx) {
 
 async function onSecondQuestion(ctx) {
   userAnswers.push(ctx.callbackQuery.data);
-  const questionInlineKeyboard = new InlineKeyboard().text('Положительно', '3-1').row().text('Отрицательно', '3-2').row().text('Нейтрально', '3-3').row();
+  const questionInlineKeyboard = new InlineKeyboard().text('Положительно', '3-9').row().text('Отрицательно', '3-10').row().text('Нейтрально', '3-11').row();
   await ctx.answerCallbackQuery();
   await ctx.callbackQuery.message.editText(`(3/4) 
     
@@ -117,7 +117,7 @@ async function onSecondQuestion(ctx) {
 
 async function onThirdQuestion(ctx) {
   userAnswers.push(ctx.callbackQuery.data);
-  const questionInlineKeyboard = new InlineKeyboard().text('Огромный. За ИИ - будущее', '4-1').row().text('ОНО ПОРОБОТИТ ЧЕЛОВЕЧЕСТВО!!!!', '4-2').row().text('Думаю ничего не изменится', '4-3').row().text('Затрудняюсь ответить', '4-4');
+  const questionInlineKeyboard = new InlineKeyboard().text('Огромный. За ИИ - будущее', '4-12').row().text('ОНО ПОРОБОТИТ ЧЕЛОВЕЧЕСТВО!!!!', '4-13').row().text('Думаю ничего не изменится', '4-14').row().text('Затрудняюсь ответить', '4-15');
   await ctx.answerCallbackQuery();
   await ctx.callbackQuery.message.editText(`(4/4) Последний
     
