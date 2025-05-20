@@ -28,3 +28,4 @@ Telegram bot используемый для опроса средней и ст
 - [Privacy Policy](Privacy-policy.md)
 - [Github разработчика](https://github.com/maxim-klenov)
 - [Telegram разработчика](https://t.me/tgxzz)
+- [презентация](https://docs.google.com/presentation/d/1FHmLqY-YWBhJNHF0oqpiKCQMTlagDT9RM-4QAYab8f4/edit?usp=drivesdk)
